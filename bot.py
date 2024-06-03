@@ -71,7 +71,7 @@ async def agr(message: types.Message):
             await message.answer(error_messages['type'])
         try:
             result = aggregate_salaries(dt_from, dt_upto, group_type)
-            return await message.answer(str(result))
+            return await message.answer(json.dumps(result))
         except ValueError as e:
             await message.answer(str(e))
 
